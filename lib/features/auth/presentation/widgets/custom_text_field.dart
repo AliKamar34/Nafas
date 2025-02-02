@@ -9,10 +9,14 @@ class CustomTextField extends StatelessWidget {
     required this.lable,
     required this.hint,
     required this.icon,
+    this.validator,
+    this.suffixIcon,
   });
   final String lable;
   final String hint;
   final String icon;
+  final String? suffixIcon;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,6 +28,7 @@ class CustomTextField extends StatelessWidget {
           style: TextStyles.medium12,
         ),
         TextFormField(
+          validator: validator,
           decoration: InputDecoration(
             hintText: hint,
             hintStyle: TextStyles.medium12.copyWith(
@@ -41,6 +46,12 @@ class CustomTextField extends StatelessWidget {
               icon,
               fit: BoxFit.scaleDown,
             ),
+            suffixIcon: suffixIcon != null
+                ? SvgPicture.asset(
+                    suffixIcon!,
+                    fit: BoxFit.scaleDown,
+                  )
+                : null,
           ),
         ),
       ],
