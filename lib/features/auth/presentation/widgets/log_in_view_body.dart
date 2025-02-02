@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nafas_app/core/utils/app_colors.dart';
 import 'package:nafas_app/core/utils/app_custom_icons.dart';
 import 'package:nafas_app/core/utils/app_text_styles.dart';
+import 'package:nafas_app/features/auth/presentation/forget_password_view.dart';
 import 'package:nafas_app/features/auth/presentation/sign_up_view.dart';
 import 'package:nafas_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:nafas_app/features/auth/presentation/widgets/custom_text_field.dart';
@@ -39,6 +40,9 @@ class LogInViewBody extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, ForgetPasswordView.routeName);
+              },
               child: Text(
                 'نسيت كلمة المرور؟',
                 style: TextStyles.medium12.copyWith(
