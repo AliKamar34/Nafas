@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nafas_app/core/utils/app_colors.dart';
 import 'package:nafas_app/core/utils/app_custom_icons.dart';
 import 'package:nafas_app/core/utils/app_text_styles.dart';
+import 'package:nafas_app/features/auth/presentation/sign_up_view.dart';
 import 'package:nafas_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:nafas_app/features/auth/presentation/widgets/custom_text_field.dart';
 import 'package:nafas_app/features/auth/presentation/widgets/google_section.dart';
@@ -34,6 +35,7 @@ class LogInViewBody extends StatelessWidget {
               lable: 'كلمة المرور',
               hint: '********',
               icon: AppCustomIcons.lockIcon,
+              suffixIcon: AppCustomIcons.hideIcon,
             ),
             const SizedBox(height: 12),
             GestureDetector(
@@ -58,7 +60,9 @@ class LogInViewBody extends StatelessWidget {
                   style: TextStyles.medium12.copyWith(),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, SignUpView.routeName);
+                  },
                   child: Text(
                     'انشاء حساب جديد',
                     style: TextStyles.medium12.copyWith(
