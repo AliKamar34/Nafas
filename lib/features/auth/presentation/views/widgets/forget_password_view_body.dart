@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nafas_app/core/utils/app_custom_icons.dart';
+import 'package:nafas_app/core/utils/app_images.dart';
 import 'package:nafas_app/core/utils/app_text_styles.dart';
 import 'package:nafas_app/features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:nafas_app/features/auth/presentation/views/widgets/custom_text_field.dart';
@@ -28,7 +29,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
                 style: TextStyles.medium18),
             SizedBox(height: 84),
             SvgPicture.asset(
-              AppCustomIcons.forgetPasswordAvatar,
+              Assets.forgetPasswordAvatar,
               width: 200,
               height: 200,
             ),
