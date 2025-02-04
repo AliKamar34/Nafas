@@ -10,15 +10,16 @@ class WelcomeSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       spacing: 10,
       children: [
         Text(
           'مرحباً بك من جديد',
-          style: TextStyles.medium16,
+          style: TextStyles.medium24(context),
         ),
         Text(
           'سجل دخولك لتتمكن من استخدام هذه الخدمات',
-          style: TextStyles.medium12.copyWith(
+          style: TextStyles.medium16(context).copyWith(
             color: AppColors.secondaryTextColor,
           ),
         ),

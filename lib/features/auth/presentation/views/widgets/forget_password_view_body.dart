@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nafas_app/core/utils/app_custom_icons.dart';
 import 'package:nafas_app/core/utils/app_images.dart';
 import 'package:nafas_app/core/utils/app_text_styles.dart';
-import 'package:nafas_app/features/auth/presentation/views/widgets/custom_button.dart';
+import 'package:nafas_app/core/widgets/custom_button.dart';
 import 'package:nafas_app/features/auth/presentation/views/widgets/custom_text_field.dart';
 
 class ForgetPasswordViewBody extends StatelessWidget {
@@ -20,13 +20,13 @@ class ForgetPasswordViewBody extends StatelessWidget {
           children: [
             Text(
               'نسيت كلمة المرور؟',
-              style: TextStyles.medium28,
+              style: TextStyles.medium28(context),
             ),
             const SizedBox(
               height: 8,
             ),
             Text('يمكنك استعادة كلمة المرور الأن عبر البريد',
-                style: TextStyles.medium18),
+                style: TextStyles.medium18(context)),
             SizedBox(height: 84),
             SvgPicture.asset(
               Assets.forgetPasswordAvatar,
@@ -43,7 +43,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
             ),
             SizedBox(height: 20),
             CustomButton(
-              buttonLable: 'إعادة تعيين كلمة المرور',
+              text: 'إعادة تعيين كلمة المرور',
               onPressed: () {},
             ),
           ],

@@ -48,7 +48,7 @@ class PageViewItem extends StatelessWidget {
                     ),
                     child: Text(
                       'تخطي',
-                      style: TextStyles.bold18.copyWith(
+                      style: TextStyles.bold18(context).copyWith(
                         color: AppColors.secondaryTextColor,
                       ),
                     ),
@@ -70,7 +70,7 @@ class PageViewItem extends StatelessWidget {
                 Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: TextStyles.medium28.copyWith(
+                  style: TextStyles.medium28(context).copyWith(
                     color: AppColors.primaryTextColor,
                     height: 1.5,
                   ),
@@ -80,7 +80,7 @@ class PageViewItem extends StatelessWidget {
                   child: Text(
                     subtitle,
                     textAlign: TextAlign.center,
-                    style: TextStyles.medium18.copyWith(
+                    style: TextStyles.medium18(context).copyWith(
                       color: AppColors.secondaryTextColor,
                       height: 1.5,
                     ),

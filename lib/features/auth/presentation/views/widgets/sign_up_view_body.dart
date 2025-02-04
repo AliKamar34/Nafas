@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:nafas_app/core/utils/app_colors.dart';
 import 'package:nafas_app/core/utils/app_custom_icons.dart';
 import 'package:nafas_app/core/utils/app_text_styles.dart';
+import 'package:nafas_app/core/widgets/custom_button.dart';
 import 'package:nafas_app/features/auth/presentation/views/log_in_view.dart';
-import 'package:nafas_app/features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:nafas_app/features/auth/presentation/views/widgets/custom_text_field.dart';
 import 'package:nafas_app/features/auth/presentation/views/widgets/google_section.dart';
 
@@ -23,7 +23,7 @@ class SignUpViewBody extends StatelessWidget {
             const SizedBox(height: 50),
             Text(
               'إنشاء حساب جديد',
-              style: TextStyles.medium24,
+              style: TextStyles.medium24(context),
             ),
             const SizedBox(height: 30),
             CustomTextField(
@@ -86,7 +86,7 @@ class SignUpViewBody extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             CustomButton(
-              buttonLable: 'إنشاء حساب',
+              text: 'إنشاء حساب',
               onPressed: () {},
             ),
             const SizedBox(height: 15),
@@ -95,7 +95,7 @@ class SignUpViewBody extends StatelessWidget {
               children: [
                 Text(
                   'لديك حساب بالفعل؟',
-                  style: TextStyles.medium12.copyWith(),
+                  style: TextStyles.medium12(context).copyWith(),
                 ),
                 GestureDetector(
                   onTap: () {
@@ -103,7 +103,7 @@ class SignUpViewBody extends StatelessWidget {
                   },
                   child: Text(
                     'تسجيل الدخول',
-                    style: TextStyles.medium12.copyWith(
+                    style: TextStyles.medium12(context).copyWith(
                       color: AppColors.primaryColor,
                     ),
                   ),
