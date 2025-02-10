@@ -22,7 +22,7 @@ class TapToExpandWidgetState extends State<TapToExpandWidget> {
         });
       },
       child: AnimatedSize(
-        duration: Duration(seconds: 1),
+        duration: Duration(milliseconds: 500),
         curve: Curves.easeInOut,
         child: Container(
           margin: EdgeInsets.only(bottom: 12),
@@ -59,7 +59,10 @@ class TapToExpandWidgetState extends State<TapToExpandWidget> {
                 ),
                 SizedBox(height: 8),
                 _isExpanded
-                    ? Text(widget.treatmentPlanModel.content.join("\n"))
+                    ? Text(
+                        widget.treatmentPlanModel.content.join("\n"),
+                        style: TextStyles.medium16(context),
+                      )
                     : SizedBox(),
               ],
             ),
