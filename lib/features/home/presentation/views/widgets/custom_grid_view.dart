@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:nafas_app/core/utils/app_colors.dart';
 import 'package:nafas_app/core/utils/app_images.dart';
 import 'package:nafas_app/core/utils/app_text_styles.dart';
@@ -44,14 +43,18 @@ class CustomCounterGridView extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(
               top: 20,
-              // bottom: 20,
+              bottom: 20,
               right: 18.5,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SvgPicture.asset(
-                  counterData[index].image,
+                FittedBox(
+                  child: Image.asset(
+                    counterData[index].image,
+                    height: 34,
+                    width: 34,
+                  ),
                 ),
                 SizedBox(
                   height: 5,

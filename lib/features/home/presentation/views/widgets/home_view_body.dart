@@ -3,7 +3,7 @@ import 'package:nafas_app/features/home/presentation/views/widgets/custom_grid_v
 import 'package:nafas_app/features/home/presentation/views/widgets/custom_lable_shape.dart';
 import 'package:nafas_app/features/home/presentation/views/widgets/did_u_know_section.dart';
 import 'package:nafas_app/features/home/presentation/views/widgets/home_view_app_bar.dart';
-import 'package:nafas_app/features/home/presentation/views/widgets/tap_to_expand.dart';
+import 'package:nafas_app/features/home/presentation/views/widgets/treatment_plan_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -32,9 +32,9 @@ class HomeViewBody extends StatelessWidget {
                     const SizedBox(
                       height: 12,
                     ),
-                    TapToExpandWidget()
+                    TreatmentPlanListView(),
                   ],
-                )
+                ),
               ],
             ),
           ),
