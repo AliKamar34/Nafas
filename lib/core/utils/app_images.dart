@@ -15,9 +15,11 @@ class Assets {
       "assets/images/on_boarding_item4.svg";
   static const forgetPasswordAvatar =
       'assets/images/forgot_password_re_hxwm 1.svg';
-  static const boxMoneyAvatar = 'assets/images/MoneyBox.svg';
-  static const cigaretteAvatar = 'assets/images/cigarette.svg';
-  static const goalAvatar = 'assets/images/Goal.svg';
-  static const insepctionAvatar = 'assets/images/Inspection.svg';
-  static const ideaAvatar = 'assets/images/Idea.svg';
+  static const boxMoneyAvatar = 'assets/images/MoneyBox.png';
+  static const cigaretteAvatar = 'assets/images/cigarette.png';
+  static const goalAvatar = 'assets/images/Goal.png';
+  static const insepctionAvatar = 'assets/images/Inspection.png';
+  static const ideaAvatar = 'assets/images/Idea.png';
+  static const vedioTestimage = 'assets/images/vediotestimage.png';
+  static const articleTextImage = 'assets/images/articletestimage.png';
 }
