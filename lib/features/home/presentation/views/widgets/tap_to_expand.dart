@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:nafas_app/core/utils/app_colors.dart';
 import 'package:nafas_app/core/utils/app_text_styles.dart';
+import 'package:nafas_app/features/home/data/model/treatment_plan_model.dart';
 
 class TapToExpandWidget extends StatefulWidget {
-  const TapToExpandWidget({super.key});
-
+  const TapToExpandWidget({super.key, required this.treatmentPlanModel});
+  final TreatmentPlanModel treatmentPlanModel;
   @override
   TapToExpandWidgetState createState() => TapToExpandWidgetState();
 }
@@ -24,6 +25,7 @@ class TapToExpandWidgetState extends State<TapToExpandWidget> {
         duration: Duration(seconds: 1),
         curve: Curves.easeInOut,
         child: Container(
+          margin: EdgeInsets.only(bottom: 12),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(12),
@@ -38,25 +40,27 @@ class TapToExpandWidgetState extends State<TapToExpandWidget> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'الأسبوع الأول – الاستعداد للإقلاع',
-                      style: TextStyles.medium16(context).copyWith(
-                        color: AppColors.primaryColor,
-                      ),
-                    ),
-                    InkWell(
-                      child: RotatedBox(
-                        quarterTurns: 2,
-                        child: Icon(
-                          Icons.arrow_back_ios_new,
-                          color: Colors.grey,
+                    Expanded(
+                      child: Text(
+                        widget.treatmentPlanModel.title,
+                        style: TextStyles.medium16(context).copyWith(
+                          color: AppColors.primaryColor,
                         ),
                       ),
-                      onTap: () {},
+                    ),
+                    RotatedBox(
+                      quarterTurns: _isExpanded ? 1 : 2,
+                      child: Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.grey,
+                      ),
                     ),
                   ],
                 ),
-                _isExpanded ? Text('data') : SizedBox(),
+                SizedBox(height: 8),
+                _isExpanded
+                    ? Text(widget.treatmentPlanModel.content.join("\n"))
+                    : SizedBox(),
               ],
             ),
           ),
