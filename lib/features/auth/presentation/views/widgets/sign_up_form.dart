@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nafas_app/core/utils/app_custom_icons.dart';
 import 'package:nafas_app/core/widgets/custom_button.dart';
-import 'package:nafas_app/features/auth/presentation/views/widgets/custom_text_field.dart';
+import 'package:nafas_app/core/widgets/custom_text_field.dart';
 
 class SingUpForm extends StatelessWidget {
   const SingUpForm({

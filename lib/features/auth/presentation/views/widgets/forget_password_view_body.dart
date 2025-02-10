@@ -4,7 +4,7 @@ import 'package:nafas_app/core/utils/app_custom_icons.dart';
 import 'package:nafas_app/core/utils/app_images.dart';
 import 'package:nafas_app/core/utils/app_text_styles.dart';
 import 'package:nafas_app/core/widgets/custom_button.dart';
-import 'package:nafas_app/features/auth/presentation/views/widgets/custom_text_field.dart';
+import 'package:nafas_app/core/widgets/custom_text_field.dart';
 
 class ForgetPasswordViewBody extends StatelessWidget {
   const ForgetPasswordViewBody({super.key});
