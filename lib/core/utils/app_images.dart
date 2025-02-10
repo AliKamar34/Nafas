@@ -22,4 +22,5 @@ class Assets {
   static const ideaAvatar = 'assets/images/Idea.png';
   static const vedioTestimage = 'assets/images/vediotestimage.png';
   static const articleTextImage = 'assets/images/articletestimage.png';
+  static const String selfieAvatar = 'assets/images/selfieavatar.png';
 }
