@@ -6,6 +6,7 @@ import 'package:nafas_app/features/guide/presentation/views/more_articles_view.d
 import 'package:nafas_app/features/guide/presentation/views/more_vedios_view.dart';
 import 'package:nafas_app/features/home/presentation/views/nav_bar.dart';
 import 'package:nafas_app/features/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:nafas_app/features/savings_counter/presentation/views/empty_achieved_goals_view.dart';
 import 'package:nafas_app/features/setting/presentation/view/account_data_view.dart';
 import 'package:nafas_app/features/setting/presentation/view/privacy_view.dart';
 import 'package:nafas_app/features/setting/presentation/view/rules_view.dart';
@@ -36,6 +37,9 @@ Route onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const RulesView());
     case PrivacyView.routeName:
       return MaterialPageRoute(builder: (context) => const PrivacyView());
+    case EmptyAchievedGoalsView.routeName:
+      return MaterialPageRoute(
+          builder: (context) => const EmptyAchievedGoalsView());
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
   }
