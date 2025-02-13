@@ -48,11 +48,13 @@ class TapToExpandWidgetState extends State<TapToExpandWidget> {
                         ),
                       ),
                     ),
-                    RotatedBox(
-                      quarterTurns: _isExpanded ? 1 : 2,
+                    AnimatedRotation(
+                      duration: Duration(milliseconds: 500),
+                      turns: _isExpanded ? 0.25 : 0.5,
                       child: Icon(
                         Icons.arrow_back_ios_new,
-                        color: Colors.grey,
+                        color:
+                            _isExpanded ? AppColors.primaryColor : Colors.grey,
                       ),
                     ),
                   ],
@@ -60,7 +62,9 @@ class TapToExpandWidgetState extends State<TapToExpandWidget> {
                 SizedBox(height: 8),
                 _isExpanded
                     ? Text(
-                        widget.treatmentPlanModel.content.join("\n"),
+                        widget.treatmentPlanModel.content
+                            .map((e) => "• $e")
+                            .join("\n"),
                         style: TextStyles.medium16(context),
                       )
                     : SizedBox(),
