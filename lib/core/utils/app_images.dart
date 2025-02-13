@@ -24,4 +24,10 @@ class Assets {
   static const articleTextImage = 'assets/images/articletestimage.png';
   static const selfieAvatar = 'assets/images/selfieavatar.png';
   static const warningAvatar = 'assets/images/warningAvatar.svg';
+  static const String imagesCigarette = "assets/images/cigarette.png";
+  static const String imagesError = "assets/images/error.png";
+  static const String imagesWallet = "assets/images/wallet.png";
+  static const String imagesPencil = "assets/images/pencil.png";
+  static const String imagesPlus = "assets/images/plus.png";
+  static const String imagesTaskCompleted = "assets/images/task_completed.png";
 }
