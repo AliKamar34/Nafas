@@ -23,14 +23,14 @@ class SignUpViewBody extends StatelessWidget {
               style: TextStyles.medium24(context),
             ),
             const SizedBox(height: 30),
-            SingUpForm(),
+            SignUpForm(),
             const SizedBox(height: 15),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'لديك حساب بالفعل؟',
-                  style: TextStyles.medium14(context).copyWith(),
+                  'لديك حساب بالفعل؟ ',
+                  style: TextStyles.medium14(context),
                 ),
                 GestureDetector(
                   onTap: () {

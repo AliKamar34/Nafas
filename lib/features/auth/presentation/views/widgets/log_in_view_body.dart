@@ -28,8 +28,8 @@ class LogInViewBody extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'ليس لديك حساب؟',
-                  style: TextStyles.medium16(context).copyWith(),
+                  'ليس لديك حساب؟ ',
+                  style: TextStyles.medium14(context),
                 ),
                 GestureDetector(
                   onTap: () {
@@ -37,7 +37,7 @@ class LogInViewBody extends StatelessWidget {
                   },
                   child: Text(
                     'انشاء حساب جديد',
-                    style: TextStyles.medium16(context).copyWith(
+                    style: TextStyles.medium14(context).copyWith(
                       color: AppColors.primaryColor,
                     ),
                   ),

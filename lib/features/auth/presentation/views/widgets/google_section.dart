@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nafas_app/core/utils/app_colors.dart';
-import 'package:nafas_app/core/utils/app_custom_icons.dart';
 import 'package:nafas_app/core/utils/app_text_styles.dart';
+import 'package:nafas_app/features/auth/presentation/cubits/signin_cubit/signin_cubit.dart';
+import 'package:nafas_app/features/auth/presentation/views/widgets/custom_google_button.dart';
 
 class GoogleSection extends StatelessWidget {
   const GoogleSection({
@@ -34,11 +35,10 @@ class GoogleSection extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 30),
-        ElevatedButton(
-          onPressed: () {},
-          child: SvgPicture.asset(
-            AppCustomIcons.googleIcon,
-          ),
+        GoogleButton(
+          onTap: () {
+            context.read<SignInCubit>().signInWithGoogle();
+          },
         ),
       ],
     );
