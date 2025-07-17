@@ -2,9 +2,11 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
+import 'package:nafas_app/core/services/firebase_auth_service.dart';
 import 'package:nafas_app/core/services/shared_preferences_singleton.dart';
 import 'package:nafas_app/core/utils/constant.dart';
 import 'package:nafas_app/features/auth/presentation/views/log_in_view.dart';
+import 'package:nafas_app/features/home/presentation/views/nav_bar.dart';
 import 'package:nafas_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -19,6 +21,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+    executeNavigation();
     super.initState();
   }
 
@@ -41,11 +44,37 @@ class _SplashViewBodyState extends State<SplashViewBody>
           'assets/animations/splash_logo.json',
           fit: BoxFit.fill,
         ),
-        nextScreen:
-            Prefs.getBool(kIsOnBoardingSeen) ? LogInView() : OnBoardingView(),
+        disableNavigation: true,
+        nextScreen: const OnBoardingView(),
         duration: 3800,
         splashIconSize: double.infinity,
       ),
+    );
+  }
+
+  void executeNavigation() {
+    bool isOnBoardingSeen = Prefs.getBool(kIsOnBoardingSeen);
+    Future.delayed(
+      const Duration(milliseconds: 4800),
+      () {
+        if (isOnBoardingSeen) {
+          var isLoggedIn = FirebaseAuthService().isLoggedIn();
+
+          if (isLoggedIn) {
+            if (mounted) {
+              Navigator.pushReplacementNamed(context, NavBarView.routeName);
+            }
+          } else {
+            if (mounted) {
+              Navigator.pushReplacementNamed(context, LogInView.routeName);
+            }
+          }
+        } else {
+          if (mounted) {
+            Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+          }
+        }
+      },
     );
   }
 }
