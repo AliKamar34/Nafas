@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "578636434026",
+    "project_id": "nafasauth",
+    "storage_bucket": "nafasauth.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578636434026:android:89825bef40f3ea86975813",
+        "android_client_info": {
+          "package_name": "com.example.nafas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578636434026-7dguo4dfgipvpdjh43gcrgsgh77n0bt0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nafas",
+            "certificate_hash": "161ac5fd7eaa2e68557efae534b3270d9c7d6f29"
+          }
+        },
+        {
+          "client_id": "578636434026-lglep4l5bkg24pbhqbpi1c7s3m9lm347.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXUSC1xU3WL43SZDV5gnPobfSAoVhtF58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578636434026-lglep4l5bkg24pbhqbpi1c7s3m9lm347.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "578636434026-0b8ute446tutngm981m1vct28jgoc2ip.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.nafas"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
