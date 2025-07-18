@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:nafas_app/core/utils/app_colors.dart';
 import 'package:nafas_app/core/utils/app_text_styles.dart';
 
-showCustomSnackBar(
-  context, {
+void showCustomSnackBar(
+  BuildContext context, {
   String? content,
   required String message,
   required bool isSucceeded,

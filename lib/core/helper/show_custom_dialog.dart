@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nafas_app/core/widgets/custom_dialog.dart';
 
 void showCustomDialog(
-  context, {
+  BuildContext context, {
   required String dialogTitle,
   required String dialogTextFieldHintText,
   required String dialogButtonTitle,
@@ -10,6 +10,7 @@ void showCustomDialog(
   bool isContentNeeded = false,
   bool isButtonTwoNeeded = false,
   String? buttonTwoTitle,
+  void Function(double)? onPressedCubitAction,
 }) {
   showDialog(
     context: context,
@@ -21,6 +22,7 @@ void showCustomDialog(
       isContentNeeded: isContentNeeded,
       isButtonTwoNeeded: isButtonTwoNeeded,
       buttonTwoTitle: buttonTwoTitle,
+      onPressedCubitAction: onPressedCubitAction,
     ),
   );
 }
