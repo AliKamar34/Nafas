@@ -27,7 +27,7 @@ class CustomAlert extends StatelessWidget {
         radius: 40,
         backgroundColor: AppColors.importantButtonsBackgroundColor,
         child: SvgPicture.asset(
-          Assets.warningAvatar,
+          Assets.imagesWarningAvatar,
         ),
       ),
       iconPadding: EdgeInsets.symmetric(vertical: 40),
@@ -36,7 +36,9 @@ class CustomAlert extends StatelessWidget {
         style: TextStyles.medium16(context),
       ),
       titlePadding: EdgeInsets.only(bottom: 10),
-      contentPadding: EdgeInsets.symmetric(horizontal: 40),
+      contentPadding: EdgeInsets.symmetric(
+        horizontal: 40,
+      ),
       content: Text(
         content,
         style: TextStyles.medium18(context).copyWith(

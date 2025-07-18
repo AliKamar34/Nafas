@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nafas_app/core/helper/get_user.dart';
 import 'package:nafas_app/core/utils/app_colors.dart';
 import 'package:nafas_app/core/utils/app_custom_icons.dart';
 import 'package:nafas_app/core/utils/app_images.dart';
@@ -13,36 +14,20 @@ class AccountDataViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 12),
-        Row(
-          children: [
-            IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(Icons.arrow_back)),
-            Spacer(flex: 1),
-            Text(
-              'الشروط والأحكام',
-              style: TextStyles.medium20(context),
-            ),
-            Spacer(flex: 1),
-          ],
-        ),
-        SizedBox(height: 41),
+        SizedBox(height: 30),
         CircleAvatar(
           radius: 60,
-          backgroundImage: AssetImage(Assets.selfieAvatar),
+          backgroundImage: AssetImage(Assets.imagesSelfieAvatar),
         ),
         CustomTextField(
           lable: 'الإسم الأول',
-          hint: 'محمد',
+          hint: getUser().name.split(' ').first,
           icon: AppCustomIcons.humanIcon,
         ),
         SizedBox(height: 20),
         CustomTextField(
           lable: 'الإسم الأخير',
-          hint: 'أبو النجا',
+          hint: getUser().name.split(' ').last,
           icon: AppCustomIcons.humanIcon,
         ),
         SizedBox(height: 36),
