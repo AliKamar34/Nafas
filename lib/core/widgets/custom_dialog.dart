@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:nafas_app/core/utils/constant.dart';
 import 'package:nafas_app/core/widgets/custom_container.dart';
 import 'package:nafas_app/features/savings_counter/presentation/views/widgets/custom_dialog_header.dart';
 import 'package:nafas_app/core/widgets/custom_dialog_text_field.dart';
@@ -14,6 +14,7 @@ class CustomDialog extends StatelessWidget {
     required this.isContentNeeded,
     required this.isButtonTwoNeeded,
     this.buttonTwoTitle,
+    this.onPressedCubitAction,
   });
 
   final String dialogTitle;
@@ -23,18 +24,18 @@ class CustomDialog extends StatelessWidget {
   final bool isContentNeeded;
   final bool isButtonTwoNeeded;
   final String? buttonTwoTitle;
+  final void Function(double)? onPressedCubitAction;
 
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      insetPadding: EdgeInsets.symmetric(horizontal: 16),
       child: CustomContainer(
         hight: isButtonTwoNeeded
             ? MediaQuery.sizeOf(context).height * 0.425
             : MediaQuery.sizeOf(context).height * 0.35,
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: 16,
+            horizontal: kHorizontalPadding,
           ),
           child: Column(
             children: [
@@ -53,6 +54,7 @@ class CustomDialog extends StatelessWidget {
                 isContentNeeded: isContentNeeded,
                 isButtonTwoNeeded: isButtonTwoNeeded,
                 buttonTwoTitle: buttonTwoTitle,
+                onPressedCubitAction: onPressedCubitAction,
               ),
             ],
           ),
