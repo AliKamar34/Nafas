@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:nafas_app/core/utils/app_images.dart';
 import 'package:nafas_app/core/utils/app_text_styles.dart';
@@ -16,8 +14,8 @@ class DidUKnowSection extends StatefulWidget {
 }
 
 class _DidUKnowSectionState extends State<DidUKnowSection> {
-  int currentIndex = 0;
-  final List<String> didUKnowEquations = const [
+  var index = 0;
+  final List<String> texts = const [
     'الإقلاع عن التدخين لمدة 20 دقيقة فقط يخفض معدل ضربات القلب وضغط الدم.',
     'الرئتين تبدأان في التعافي بعد 12 ساعة فقط من التوقف عن التدخين.',
     'خطر الإصابة بأمراض القلب ينخفض إلى النصف بعد عام واحد من الإقلاع.',
@@ -46,9 +44,12 @@ class _DidUKnowSectionState extends State<DidUKnowSection> {
         InkWell(
           borderRadius: BorderRadius.circular(12),
           onTap: () {
-            setState(() {
-              currentIndex = Random().nextInt(didUKnowEquations.length);
-            });
+            setState(() {});
+            if (index == texts.length - 1) {
+              index = 0;
+            } else {
+              index += 1;
+            }
           },
           child: CustomContainer(
             child: Padding(
@@ -58,21 +59,19 @@ class _DidUKnowSectionState extends State<DidUKnowSection> {
               ),
               child: Row(
                 children: [
-                  FittedBox(
-                    child: Image.asset(
-                      Assets.ideaAvatar,
-                      height: 60,
-                      width: 60,
-                    ),
+                  Image.asset(
+                    Assets.imagesIdea,
+                    width: 63,
+                    height: 63,
                   ),
                   SizedBox(width: 15),
                   Expanded(
                     child: Text(
-                      didUKnowEquations[currentIndex],
+                      texts[index],
                       style: TextStyles.medium16(context),
                       softWrap: true,
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

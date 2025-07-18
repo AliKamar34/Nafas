@@ -1,19 +1,22 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:nafas_app/core/utils/app_colors.dart';
 import 'package:nafas_app/core/utils/app_custom_icons.dart';
+import 'package:nafas_app/core/utils/app_images.dart';
 import 'package:nafas_app/core/utils/app_text_styles.dart';
+import 'package:nafas_app/features/guide/presentation/manger/videos_cubit/videos_cubit.dart';
 import 'package:nafas_app/features/guide/presentation/views/guide_view.dart';
 import 'package:nafas_app/features/home/presentation/views/home_view.dart';
 import 'package:nafas_app/features/savings_counter/presentation/views/savings_counter_view.dart';
 import 'package:nafas_app/features/setting/presentation/view/settings_view.dart';
 
+import '../../../guide/presentation/manger/blogs_cubit/blogs_cubit.dart';
+
 class NavBarView extends StatefulWidget {
   const NavBarView({super.key});
-  static const String routeName = '/navBar';
+  static const String routeName = 'navBar';
 
   @override
   State<NavBarView> createState() => _NavBarViewState();
@@ -35,47 +38,57 @@ class _NavBarViewState extends State<NavBarView> {
         color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.only(
-            bottom: 12,
             top: 12,
+            bottom: 20,
             right: 16,
             left: 16,
           ),
           child: GNav(
-            haptic: true,
-            tabBorderRadius: 12,
-            curve: Curves.easeOutExpo,
-            duration: const Duration(milliseconds: 500),
-            gap: 8,
-            color: AppColors.importantButtonsBackgroundColor,
+            tabActiveBorder: Border.symmetric(
+              horizontal: BorderSide(
+                width: 2,
+                color: Colors.transparent,
+              ),
+            ),
+            tabBorderRadius: 8,
+            gap: 5,
+            color: AppColors.secondaryTextColor,
             iconSize: 24,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 10,
+            ),
             tabs: [
               GButton(
                 leading: SvgPicture.asset(
                   AppCustomIcons.homeIcon,
-                  height: 28,
-                  width: 28,
+                  height: 24,
+                  width: 24,
                   colorFilter: ColorFilter.mode(
-                    selectedIndex == 0 ? Color(0xff246BFE) : Colors.grey,
+                    selectedIndex == 0
+                        ? AppColors.secondaryColor
+                        : AppColors.secondaryTextColor,
                     BlendMode.srcIn,
                   ),
                 ),
                 icon: Icons.circle,
                 iconSize: 0,
-                text: 'الرئيسيه',
+                text: 'الرئيسية',
                 textStyle: TextStyles.medium12(context).copyWith(
-                  color: Color(0xff246BFE),
+                  color: AppColors.secondaryColor,
                 ),
-                rippleColor: Color(0xff246BFE).withOpacity(0.1),
-                backgroundColor: Color(0xff246BFE).withOpacity(0.1),
+                rippleColor: AppColors.secondaryColor.withAlpha(25),
+                backgroundColor: AppColors.secondaryColor.withAlpha(25),
               ),
               GButton(
                 leading: SvgPicture.asset(
                   AppCustomIcons.counterIcon,
-                  height: 28,
-                  width: 28,
+                  height: 24,
+                  width: 24,
                   colorFilter: ColorFilter.mode(
-                    selectedIndex == 1 ? Color(0xff00AF6A) : Colors.grey,
+                    selectedIndex == 1
+                        ? Color(0xff00AF6A)
+                        : AppColors.secondaryTextColor,
                     BlendMode.srcIn,
                   ),
                 ),
@@ -85,16 +98,18 @@ class _NavBarViewState extends State<NavBarView> {
                 textStyle: TextStyles.medium12(context).copyWith(
                   color: Color(0xff00AF6A),
                 ),
-                rippleColor: Color(0xff00AF6A).withOpacity(0.1),
-                backgroundColor: Color(0xff00AF6A).withOpacity(0.1),
+                rippleColor: Color(0xff00AF6A).withAlpha(25),
+                backgroundColor: Color(0xff00AF6A).withAlpha(25),
               ),
               GButton(
                 leading: SvgPicture.asset(
                   AppCustomIcons.newsPaperIcon,
-                  height: 28,
-                  width: 28,
+                  height: 24,
+                  width: 24,
                   colorFilter: ColorFilter.mode(
-                    selectedIndex == 2 ? Color(0xff7F00FF) : Colors.grey,
+                    selectedIndex == 2
+                        ? Color(0xff7F00FF)
+                        : AppColors.secondaryTextColor,
                     BlendMode.srcIn,
                   ),
                 ),
@@ -104,27 +119,29 @@ class _NavBarViewState extends State<NavBarView> {
                 textStyle: TextStyles.medium12(context).copyWith(
                   color: Color(0xff7F00FF),
                 ),
-                rippleColor: Color(0xff7F00FF).withOpacity(0.1),
-                backgroundColor: Color(0xff7F00FF).withOpacity(0.1),
+                rippleColor: Color(0xff7F00FF).withAlpha(25),
+                backgroundColor: Color(0xff7F00FF).withAlpha(25),
               ),
               GButton(
                 leading: SvgPicture.asset(
-                  AppCustomIcons.lasticonInNavBar,
-                  height: 28,
-                  width: 28,
+                  Assets.imagesSettings,
+                  height: 24,
+                  width: 24,
                   colorFilter: ColorFilter.mode(
-                    selectedIndex == 3 ? Color(0xff000000) : Colors.grey,
+                    selectedIndex == 3
+                        ? Colors.black
+                        : AppColors.secondaryTextColor,
                     BlendMode.srcIn,
                   ),
                 ),
                 icon: Icons.circle,
                 iconSize: 0,
-                text: 'التجارب',
+                text: 'الإعدادات',
                 textStyle: TextStyles.medium12(context).copyWith(
-                  color: Color(0xff000000),
+                  color: Colors.black,
                 ),
-                rippleColor: Color(0xff000000).withOpacity(0.1),
-                backgroundColor: Color(0xff000000).withOpacity(0.1),
+                rippleColor: Colors.black.withAlpha(25),
+                backgroundColor: Colors.black.withAlpha(25),
               ),
             ],
             selectedIndex: selectedIndex,
@@ -132,6 +149,12 @@ class _NavBarViewState extends State<NavBarView> {
               setState(
                 () {
                   selectedIndex = index;
+                  if (index == 2) {
+                    context.read<VideosCubit>().fetchVideos();
+                    context.read<BlogsCubit>().fetchBlogs();
+                    context.read<VideosCubit>().selectedIndex = 0;
+                    context.read<VideosCubit>().category = 'عن التدخين';
+                  }
                 },
               );
             },

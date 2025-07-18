@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nafas_app/core/utils/constant.dart';
 import 'package:nafas_app/features/home/presentation/views/widgets/custom_grid_view.dart';
 import 'package:nafas_app/features/home/presentation/views/widgets/custom_lable_shape.dart';
 import 'package:nafas_app/features/home/presentation/views/widgets/did_u_know_section.dart';
@@ -10,13 +11,16 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        HomeViewAppBar(),
-        const SizedBox(height: 27),
-        Expanded(
-          child: SingleChildScrollView(
-            child: Column(
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: kHorizontalPadding,
+        ),
+        child: Column(
+          children: [
+            HomeViewAppBar(),
+            const SizedBox(height: 30),
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomCounterGridView(),
@@ -29,17 +33,17 @@ class HomeViewBody extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomLableShape(lable: 'خطة علاجية'),
-                    const SizedBox(
-                      height: 12,
-                    ),
                     TreatmentPlanListView(),
+                    SizedBox(
+                      height: 12,
+                    )
                   ],
-                ),
+                )
               ],
             ),
-          ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nafas_app/core/utils/app_colors.dart';
 import 'package:nafas_app/core/utils/app_images.dart';
 import 'package:nafas_app/core/utils/app_text_styles.dart';
 import 'package:nafas_app/core/widgets/custom_container.dart';
-import 'package:nafas_app/features/home/data/model/counter_model.dart';
+import 'package:nafas_app/features/home/data/models/counter_model.dart';
+import 'package:nafas_app/features/savings_counter/presentation/manger/savings_counter_cubit/savings_counter_cubit.dart';
 
 class CustomCounterGridView extends StatelessWidget {
   const CustomCounterGridView({
@@ -14,23 +16,27 @@ class CustomCounterGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     List<CounterModel> counterData = [
       CounterModel(
-        image: Assets.boxMoneyAvatar,
-        count: '500 جنيه',
-        title: 'المبلغ المُوفَّر',
+        image: Assets.imagesMoneyBox,
+        count:
+            '${context.read<SavingsCounterCubit>().state.totalSavings.toInt()} جنيه',
+        title: 'المبلغ المُوفّر',
       ),
       CounterModel(
-        image: Assets.cigaretteAvatar,
-        count: '50 سيجارة',
+        image: Assets.imagesCigarette,
+        count:
+            '${context.read<SavingsCounterCubit>().state.unsmokedCigarettesAmount.toInt()} سيجارة',
         title: 'السجائر المُوفّرة',
       ),
       CounterModel(
-        image: Assets.goalAvatar,
-        count: '1000 جنيه',
+        image: Assets.imagesGoal,
+        count:
+            '${context.read<SavingsCounterCubit>().state.goalAmount.toInt()} جنيه',
         title: 'الهدف المحدد',
       ),
       CounterModel(
-        image: Assets.insepctionAvatar,
-        count: '10 هدف',
+        image: Assets.imagesInspection,
+        count:
+            '${context.read<SavingsCounterCubit>().state.completedGoalsCount}',
         title: 'الأهداف المكتمله',
       ),
     ];
@@ -47,26 +53,33 @@ class CustomCounterGridView extends StatelessWidget {
               right: 18.5,
             ),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                FittedBox(
-                  child: Image.asset(
-                    counterData[index].image,
-                    height: 34,
-                    width: 34,
-                  ),
+                Image.asset(
+                  counterData[index].image,
+                  width: 34,
+                  height: 34,
                 ),
                 SizedBox(
                   height: 5,
                 ),
-                Text(
-                  counterData[index].title,
-                  style: TextStyles.medium16(context),
+                FittedBox(
+                  child: Text(
+                    counterData[index].title,
+                    style: TextStyles.medium16(context).copyWith(
+                      color: AppColors.primaryTextColor,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 2,
                 ),
                 Text(
                   counterData[index].count,
-                  style: TextStyles.medium16(context)
-                      .copyWith(color: AppColors.primaryColor),
+                  style: TextStyles.medium16(context).copyWith(
+                    color: AppColors.primaryColor,
+                  ),
                 ),
               ],
             ),
@@ -77,7 +90,7 @@ class CustomCounterGridView extends StatelessWidget {
         crossAxisCount: 2,
         crossAxisSpacing: 20,
         mainAxisSpacing: 20,
-        childAspectRatio: MediaQuery.sizeOf(context).aspectRatio * 2.3,
+        childAspectRatio: MediaQuery.sizeOf(context).aspectRatio * 2.19,
       ),
     );
   }
