@@ -7,7 +7,15 @@ class Prefs {
     _instance = await SharedPreferences.getInstance();
   }
 
-  static setBool(String key, bool value) => _instance.setBool(key, value);
+  static Future<bool> setBool(String key, bool value) =>
+      _instance.setBool(key, value);
 
   static bool getBool(String key) => _instance.getBool(key) ?? false;
+
+  static Future<bool> setString(String key, String value) async =>
+      await _instance.setString(key, value);
+
+  static String getString(String key) => _instance.getString(key) ?? '';
+
+  static Future<bool> remove(String key) => _instance.remove(key);
 }
