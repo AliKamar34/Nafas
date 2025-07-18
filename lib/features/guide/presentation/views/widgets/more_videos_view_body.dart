@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nafas_app/core/utils/app_colors.dart';
-import 'package:nafas_app/features/guide/presentation/manger/blogs_cubit/blogs_cubit.dart';
-import 'package:nafas_app/features/guide/presentation/views/widgets/article_list_view_item.dart';
+import 'package:nafas_app/features/guide/presentation/manger/videos_cubit/videos_cubit.dart';
+import 'package:nafas_app/features/guide/presentation/views/widgets/videos_list_view_item.dart';
 
-class MoreArticleViewBody extends StatelessWidget {
-  const MoreArticleViewBody({super.key});
+class MoreVideosViewBody extends StatelessWidget {
+  const MoreVideosViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BlogsCubit, BlogsState>(
+    return BlocBuilder<VideosCubit, VideosState>(
       builder: (context, state) {
-        if (state is BlogsSuccess) {
+        if (state is VideosSuccess) {
           return GridView.builder(
-            itemCount: state.blogs.length,
+            itemCount: state.videos.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: 12,
               mainAxisSpacing: 12,
             ),
             itemBuilder: (context, index) {
-              return ArticleListViewItem(
-                blogUrl: state.blogs[index].url!,
-                imageUrl: state.blogs[index].thumbnail ??
-                    'https://efsharibari.health.gov.il/media/2439/smoking-cessation-challenges.jpg?width=880&height=530&rnd=133747964610500000',
-                title: state.blogs[index].title!,
+              return VideosListViewItem(
+                videoUrl: state.videos[index].url!,
+                imageUrl: state.videos[index].thumbnail ??
+                    'https://fdn.gsmarena.com/imgroot/news/23/02/youtube-testing-1080p-premium/-1200/gsmarena_000.jpg',
+                title: state.videos[index].title!,
               );
             },
           );
-        } else if (state is BlogsFailure) {
+        } else if (state is VideosFailure) {
           return Center(
             child: Text(state.errorMessage),
           );
