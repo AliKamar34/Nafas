@@ -31,7 +31,7 @@ class _GoalsSectionState extends State<GoalsSection> {
               child: Row(
                 children: [
                   Image.asset(
-                    Assets.goalAvatar,
+                    Assets.imagesGoal,
                     width: 28,
                     height: 28,
                   ),

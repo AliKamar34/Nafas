@@ -4,7 +4,7 @@ import 'package:nafas_app/core/utils/app_text_styles.dart';
 
 class CustomDialogHeader extends StatelessWidget {
   const CustomDialogHeader({
-    super.key, 
+    super.key,
     required this.title,
   });
 
@@ -20,20 +20,22 @@ class CustomDialogHeader extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             },
-            padding: EdgeInsets.zero,
             icon: const Icon(
               Icons.close,
               color: AppColors.secondaryTextColor,
             ),
           ),
-          SizedBox(
-            width: 55,
+          Spacer(
+            flex: 1,
           ),
           Text(
             title,
             style: TextStyles.medium18(context).copyWith(
               color: AppColors.primaryColor,
             ),
+          ),
+          Spacer(
+            flex: 2,
           ),
         ],
       ),

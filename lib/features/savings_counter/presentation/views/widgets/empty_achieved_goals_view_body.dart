@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nafas_app/core/utils/app_colors.dart';
 import 'package:nafas_app/core/utils/app_images.dart';
 import 'package:nafas_app/core/utils/app_text_styles.dart';
+import 'package:nafas_app/core/utils/constant.dart';
 
 class EmptyAchievedGoalsViewBody extends StatelessWidget {
   const EmptyAchievedGoalsViewBody({super.key});
@@ -9,7 +10,7 @@ class EmptyAchievedGoalsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
       child: SizedBox(
         width: double.infinity,
         child: Column(
