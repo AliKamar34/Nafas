@@ -1,38 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:nafas_app/core/helper/on_generate_routes.dart';
-import 'package:nafas_app/core/services/shared_preferences_singleton.dart';
-import 'package:nafas_app/core/utils/app_colors.dart';
-import 'package:nafas_app/features/splash/presentation/views/splash_view.dart';
-import 'package:nafas_app/generated/l10n.dart';
+
+import 'package:nafas_app/nafas_app.dart';
+import 'package:nafas_app/core/services/initialize_configuration_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Prefs.init();
+  await initializeConfigurationApp();
+
   runApp(const NafasApp());
-}
-
-class NafasApp extends StatelessWidget {
-  const NafasApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        fontFamily: 'Tajawal',
-        scaffoldBackgroundColor: AppColors.primaryBackgroundColor,
-      ),
-      locale: Locale('ar'),
-      localizationsDelegates: [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
-      onGenerateRoute: onGenerateRoute,
-      initialRoute: SplashView.routeName,
-      debugShowCheckedModeBanner: false,
-    );
-  }
 }
